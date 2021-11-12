@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "5t+lPAlecSe1ki+PBPvisyh4azSbl/vS2cj5fHNQH+chAI5SbFDexmxt2hLSQrIdxme32zBmwt+jBw/wTaG6pA==",
+  "dgSpecHash": "ydQ/hyRntmQUv3ciw9KtzoE0+z44Ovr9JaGjzG2LnZcZgWLl4mjl17qqL8x024z1lOfZXq3y3MLl3stqm06Ebw==",
   "success": true,
   "projectFilePath": "D:\\Coding\\Survi\\Json_Url\\Json_Url\\Json_Url.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\adamg\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\adamg\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
+    "C:\\Users\\adamg\\.nuget\\packages\\nunit\\3.13.2\\nunit.3.13.2.nupkg.sha512"
+  ],
   "logs": []
 }
