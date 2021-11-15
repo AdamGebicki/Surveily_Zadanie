@@ -7,20 +7,19 @@ using System.Threading.Tasks;
 
 namespace Json_Url
 {
-    class DirMenager
+    class DIRValidator : IDIRValidator
     {
         private string direction;
 
-        public DirMenager()
+        public DIRValidator()
         {
             this.direction = null;
         }
-
-        public DirMenager(string direction)
+        public DIRValidator(string direction)
         {
             this.direction = direction;
         }
-        public bool GetValidation(string direction)
+        private bool GetValidation(string direction)
         {
             return Directory.Exists(direction);
         }

@@ -6,24 +6,23 @@ using System.Threading.Tasks;
 
 namespace Json_Url
 {
-    class Controller
+    public class Controller
     {
         public async Task StartProcessAsync()
         {
             List<string> listURL = GetURL();
             Task<string> directionTask = GetDirection();
-            UrlMenager urlMenager = new UrlMenager(listURL);
+            URLValidator urlMenager = new URLValidator(listURL);
             List<string> preparedListURL = await urlMenager.GetPrepraeURLList();
-            DataMenager dataMenager = new DataMenager(preparedListURL, await directionTask);
-            await dataMenager.DownloadJSONListAsync();
-            await dataMenager.SaveJSONListAsync();
+            JsonMenager dataMenager = new JsonMenager(preparedListURL, await directionTask);
+            await dataMenager.DwonloadJSON();
         }
         private async Task<string> GetDirection()
         {
             string dir = Console.ReadLine();
             await Task.Run(async () =>
             {
-                DirMenager testDIR = new DirMenager(dir);
+                DIRValidator testDIR = new DIRValidator(dir);
                 if (!testDIR.GetValidation())
                 {
                     dir = await GetDirection();

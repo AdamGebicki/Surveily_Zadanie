@@ -6,21 +6,22 @@ using System.Threading.Tasks;
 
 namespace Json_Url
 {
-    class DataMenager
+    public class JsonMenager : IJsonMenager
     {
         private readonly List<string> listURL;
-        readonly string filePatch;
-        public DataMenager(List<string> listURL, string filePatch)
+        private List<string> jsonList;
+        private readonly string filePatch;
+        public JsonMenager(List<string> listURL, string filePatch)
         {
             this.listURL = listURL;
             this.filePatch = filePatch;
         }
-        public DataMenager()
+        public JsonMenager()
         {
             this.listURL = null;
             this.filePatch = null;
         }
-        public async Task<List<string>> DownloadJSONListAsync(List<string> listURL)
+        private async Task<List<string>> DownloadJSONListAsync(List<string> listURL)
         {
             List<Task<string>> listOfTasks = new();
             List<string> jsonList = new();
@@ -34,7 +35,7 @@ namespace Json_Url
             }
             return jsonList;
         }
-        public async Task<string> DownloadJSONAsync(string url)
+        private async Task<string> DownloadJSONAsync(string url)
         {
             string json = new("");
             await Task.Run(() =>
@@ -50,7 +51,7 @@ namespace Json_Url
             });
             return json;
         }
-        public async Task SaveJSONListAsync(List<string> JsonList, string filePatch)
+        private async Task SaveJSONListAsync(List<string> JsonList, string filePatch)
         {
             List<Task<bool>> listOfTasks = new();
             foreach (string json in JsonList)
@@ -59,7 +60,7 @@ namespace Json_Url
             }
             await Task.WhenAll(listOfTasks);
         }
-        public async Task<bool> SaveJSON(string json, string filePatch)
+        private async Task<bool> SaveJSON(string json, string filePatch)
         {
             bool res = new();
             Random rnd = new();
@@ -90,13 +91,45 @@ namespace Json_Url
             return res;
 
         }
-        public async Task<List<string>> DownloadJSONListAsync()
+        public async Task<bool> GetJSONListAsync()
         {
-            return await DownloadJSONListAsync(listURL);
+            try
+            {
+                jsonList = await DownloadJSONListAsync(listURL);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            
         }
-        public async Task SaveJSONListAsync()
+        public async Task<bool> SaveJSONListAsync()
         {
-            await SaveJSONListAsync(listURL, filePatch);
+            try
+            {
+                await SaveJSONListAsync(jsonList, filePatch);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            
+        }
+        public async Task<bool> DwonloadJSON()
+        {
+            try
+            {
+                await GetJSONListAsync();
+                await SaveJSONListAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            
         }
     }
 }

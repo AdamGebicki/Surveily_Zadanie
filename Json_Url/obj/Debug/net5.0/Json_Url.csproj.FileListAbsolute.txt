@@ -15,4 +15,4 @@ D:\Coding\Survi\Json_Url\Json_Url\obj\Debug\net5.0\Json_Url.dll
 D:\Coding\Survi\Json_Url\Json_Url\obj\Debug\net5.0\ref\Json_Url.dll
 D:\Coding\Survi\Json_Url\Json_Url\obj\Debug\net5.0\Json_Url.pdb
 D:\Coding\Survi\Json_Url\Json_Url\obj\Debug\net5.0\Json_Url.genruntimeconfig.cache
-D:\Coding\Survi\Json_Url\Json_Url\obj\Debug\net5.0\Json_Url.csprojAssemblyReference.cache
+D:\Coding\Survi\Json_Url\Json_Url\obj\Debug\net5.0\Json_Url.csproj.AssemblyReference.cache

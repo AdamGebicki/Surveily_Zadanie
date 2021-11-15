@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Coding\\Survi\\Json_Url\\Json_Url\\Json_Url.csproj": {}
+    "D:\\Coding\\Survi\\Json_Url\\NUnitTest\\NUnitTest.csproj": {}
   },
   "projects": {
-    "D:\\Coding\\Survi\\Json_Url\\Json_Url\\Json_Url.csproj": {
+    "D:\\Coding\\Survi\\Json_Url\\NUnitTest\\NUnitTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Coding\\Survi\\Json_Url\\Json_Url\\Json_Url.csproj",
-        "projectName": "Json_Url",
-        "projectPath": "D:\\Coding\\Survi\\Json_Url\\Json_Url\\Json_Url.csproj",
+        "projectUniqueName": "D:\\Coding\\Survi\\Json_Url\\NUnitTest\\NUnitTest.csproj",
+        "projectName": "NUnitTest",
+        "projectPath": "D:\\Coding\\Survi\\Json_Url\\NUnitTest\\NUnitTest.csproj",
         "packagesPath": "C:\\Users\\adamg\\.nuget\\packages\\",
-        "outputPath": "D:\\Coding\\Survi\\Json_Url\\Json_Url\\obj\\",
+        "outputPath": "D:\\Coding\\Survi\\Json_Url\\NUnitTest\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\adamg\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,12 +39,6 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "dependencies": {
-            "NUnit": {
-              "target": "Package",
-              "version": "[3.13.2, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",

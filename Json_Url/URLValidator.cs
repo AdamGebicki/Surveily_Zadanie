@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace Json_Url
 {
-    class UrlMenager
+    class URLValidator : IURLValidator
     {
         private readonly List<string> listURL;
-        public UrlMenager(List<string> listURL)
+        public URLValidator(List<string> listURL)
         {
             this.listURL = listURL;
         }
-        public UrlMenager()
+        public URLValidator()
         {
             this.listURL = null;
         }
-        public List<bool> AgreementValidation(List<string> listURL)
+        private List<bool> AgreementValidation(List<string> listURL)
         {
             List<bool> validationChecklist = new();
             foreach (string url in listURL)
@@ -28,11 +28,11 @@ namespace Json_Url
             }
             return validationChecklist;
         }
-        public bool SingularValidation(string url)
+        private bool SingularValidation(string url)
         {
             return Uri.TryCreate(url, UriKind.Absolute, out Uri uriResult);
         }
-        public List<bool> ConnectionValidation(List<string> listURL)
+        private List<bool> ConnectionValidation(List<string> listURL)
         {
             List<bool> connectionChecklist = new();
             foreach (string url in listURL)
@@ -41,7 +41,7 @@ namespace Json_Url
             }
             return connectionChecklist;
         }
-        public bool SingularConnectionValidation(string url)
+        private bool SingularConnectionValidation(string url)
         {
             try
             {
@@ -74,11 +74,6 @@ namespace Json_Url
                 
             });
             return connectionList;
-            
-        }
-        public async Task<List<string>> GetPrepraeURLList()
-        {
-            return await PrepraeURLList(await GetValidationAsync(), await GetConnectionAsync());
         }
         public async Task<List<string>> PrepraeURLList(List<bool> agreementListURL, List<bool> connectionListURL)
         {
@@ -94,6 +89,10 @@ namespace Json_Url
                 }
             });
             return PreparedURLList;
+        }
+        public async Task<List<string>> GetPrepraeURLList()
+        {
+            return await PrepraeURLList(await GetValidationAsync(), await GetConnectionAsync());
         }
     }
 }

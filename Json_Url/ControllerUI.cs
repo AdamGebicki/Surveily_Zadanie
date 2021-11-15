@@ -9,7 +9,7 @@ namespace Json_Url
         public async Task StartProcess()
         {
             List<string> listURL = GetURL();
-            UrlMenager urlMenager = new UrlMenager(listURL);
+            URLValidator urlMenager = new URLValidator(listURL);
             Task<List<bool>> validationTask = urlMenager.GetValidationAsync();
             Task<List<bool>> connectionTask = urlMenager.GetConnectionAsync();
             Task<string> directionTask = GetDirection();
@@ -19,9 +19,8 @@ namespace Json_Url
             List<string> preparedListURL = await prepareURLTask;
             string filePatch = await directionTask;
             Summary(ref listURL, agreementListURL, connectionListURL, preparedListURL, filePatch);
-            DataMenager dataMenager = new DataMenager(preparedListURL, filePatch);
-            await dataMenager.DownloadJSONListAsync();
-            await dataMenager.SaveJSONListAsync();
+            JsonMenager dataMenager = new JsonMenager(preparedListURL, filePatch);
+            await dataMenager.DwonloadJSON();
         }
         private void Summary(
             ref List<string> listUrl,
@@ -80,7 +79,7 @@ namespace Json_Url
             string dir = Console.ReadLine();
             await Task.Run(async () =>
             {
-                DirMenager testDIR = new DirMenager(dir);
+                DIRValidator testDIR = new DIRValidator(dir);
                 if (!testDIR.GetValidation())
                 {
                     Console.WriteLine("Error: Patch doesn't exist.");
